@@ -1,0 +1,348 @@
+<!DOCTYPE html >
+<html>
+  <head>
+    <!-- Compiled with Bootstrap Email version: 1.5.1 -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+    <style type="text/css">
+      body,table,td{font-family:Helvetica,Arial,sans-serif !important}.ExternalClass{width:100%}.ExternalClass,.ExternalClass p,.ExternalClass span,.ExternalClass font,.ExternalClass td,.ExternalClass div{line-height:150%}a{text-decoration:none}*{color:inherit}a[x-apple-data-detectors],u+#body a,#MessageViewBody a{color:inherit;text-decoration:none;font-size:inherit;font-family:inherit;font-weight:inherit;line-height:inherit}img{-ms-interpolation-mode:bicubic}table:not([class^=s-]){font-family:Helvetica,Arial,sans-serif;mso-table-lspace:0pt;mso-table-rspace:0pt;border-spacing:0px;border-collapse:collapse}table:not([class^=s-]) td{border-spacing:0px;border-collapse:collapse}@media screen and (max-width: 600px){.w-full,.w-full>tbody>tr>td{width:100% !important}.p-5:not(table),.p-5:not(.btn)>tbody>tr>td,.p-5.btn td a{padding:20px !important}*[class*=s-lg-]>tbody>tr>td{font-size:0 !important;line-height:0 !important;height:0 !important}.s-3>tbody>tr>td{font-size:12px !important;line-height:12px !important;height:12px !important}.s-4>tbody>tr>td{font-size:16px !important;line-height:16px !important;height:16px !important}}
+    </style>
+  </head>
+  <body class="bg-light" style="outline: 0; width: 100%; min-width: 100%; height: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: Helvetica, Arial, sans-serif; line-height: 24px; font-weight: normal; font-size: 16px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; color: #000000; margin: 0; padding: 0; border-width: 0;" bgcolor="#f7fafc">
+    <table class="bg-light body" valign="top" role="presentation" border="0" cellpadding="0" cellspacing="0" style="outline: 0; width: 100%; min-width: 100%; height: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: Helvetica, Arial, sans-serif; line-height: 24px; font-weight: normal; font-size: 16px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; color: #000000; margin: 0; padding: 0; border-width: 0;" bgcolor="#f7fafc">
+      <tbody>
+        <tr>
+          <td valign="top" style="line-height: 24px; font-size: 16px; margin: 0;" align="left" bgcolor="#f7fafc">
+            <table class="bg-white p-5 rounded shadow-lg w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-radius: 4px; width: 100%;" bgcolor="#ffffff" width="100%">
+              <tbody>
+                <tr>
+                  <td style="line-height: 24px; font-size: 16px; border-radius: 4px; width: 100%; margin: 0; padding: 20px;" align="left" bgcolor="#ffffff" width="100%">
+                    <h1 class="text-center  text-primary" style="color: #0d6efd; padding-top: 0; padding-bottom: 0; font-weight: 500; vertical-align: baseline; font-size: 36px; line-height: 43.2px; margin: 0;" align="center">&#128640; CI/CD Build Status Update</h1>
+                    <table class="s-4 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                      <tbody>
+                        <tr>
+                          <td style="line-height: 16px; font-size: 16px; width: 100%; height: 16px; margin: 0;" align="left" width="100%" height="16">
+                            &#160;
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p class="lead" style="line-height: 24px; font-size: 16px; width: 100%; margin: 0;" align="left">Hello <strong>Team</strong>,</p>
+                    <p style="line-height: 24px; font-size: 16px; width: 100%; margin: 0;" align="left">Here&#8217;s the latest status update for your pipeline <strong class="text-info" style="color: #0dcaf0;">{{ pipeline_name }}</strong>.</p>
+                    <!-- STATUS TABLE -->
+                    <div class="section-card">
+                      <table class="table table-bordered text-center" border="0" cellpadding="0" cellspacing="0" style="width: 100%; max-width: 100%; text-align: center !important; border: 1px solid #e2e8f0;">
+                        <thead class="table-light" style="background-color: white;">
+                          <tr>
+                            {% if result in ["Completed", "Succeeded", "SUCCESS"] %}
+                            <th class="bg-success text-white text-center" style="line-height: 24px; font-size: 16px; color: #ffffff; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" bgcolor="#198754" valign="top">&#9989; Category</th>
+                            <th class="bg-success text-white text-center" style="line-height: 24px; font-size: 16px; color: #ffffff; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" bgcolor="#198754" valign="top">Details</th>
+                            {% else %}
+                            <th class="bg-danger text-white text-center" style="line-height: 24px; font-size: 16px; color: #ffffff; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" bgcolor="#dc3545" valign="top">&#10060; Category</th>
+                            <th class="bg-danger text-white text-center" style="line-height: 24px; font-size: 16px; color: #ffffff; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" bgcolor="#dc3545" valign="top">Details</th>
+                            {% endif %}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="center" valign="top">Build Result</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="center" valign="top">
+                              {% if result in ["Completed", "Succeeded", "SUCCESS"] %}
+                              <span class="text-success fw-bold" style="color: #198754;">&#9989; Passed</span>
+                              {% else %}
+                              <span class="text-danger fw-bold" style="color: #dc3545;">&#10060; Failed</span>
+                              {% endif %}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="center" valign="top">Pipeline Name</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="center" valign="top">
+                              <table class="btn btn-outline-primary btn-sm" role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-radius: 6px; border-collapse: separate !important;">
+                                <tbody>
+                                  <tr>
+                                    <td style="line-height: 24px; font-size: 16px; border-radius: 6px; margin: 0;" align="center" bgcolor="transparent">
+                                      <a href="{{ pipeline_url }}:{{run_number}}" target="_blank" style="color: #0d6efd; font-size: 14px; font-family: Helvetica, Arial, sans-serif; text-decoration: none; border-radius: 3px; line-height: 17.5px; display: block; font-weight: normal; white-space: nowrap; background-color: transparent; padding: 4px 8px; border: 1px solid #0d6efd;">&#128279; View Pipeline</a>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                          {% if artifact_url %}
+                          <tr>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="center" valign="top">Artifacts</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="center" valign="top">
+                              <table class="btn btn-outline-secondary btn-sm" role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-radius: 6px; border-collapse: separate !important;">
+                                <tbody>
+                                  <tr>
+                                    <td style="line-height: 24px; font-size: 16px; border-radius: 6px; margin: 0;" align="center" bgcolor="transparent">
+                                      <a href="{{ artifact_url }}" style="color: #718096; font-size: 14px; font-family: Helvetica, Arial, sans-serif; text-decoration: none; border-radius: 3px; line-height: 17.5px; display: block; font-weight: normal; white-space: nowrap; background-color: transparent; padding: 4px 8px; border: 1px solid #718096;">&#128230; Download Artifacts</a>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                          {% endif %}
+                          {% if ats_url %}
+                          <tr>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="center" valign="top">ATS Report</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="center" valign="top">
+                              <table class="btn btn-outline-warning btn-sm" role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-radius: 6px; border-collapse: separate !important;">
+                                <tbody>
+                                  <tr>
+                                    <td style="line-height: 24px; font-size: 16px; border-radius: 6px; margin: 0;" align="center" bgcolor="transparent">
+                                      <a href="{{ ats_url }}" style="color: #ffc107; font-size: 14px; font-family: Helvetica, Arial, sans-serif; text-decoration: none; border-radius: 3px; line-height: 17.5px; display: block; font-weight: normal; white-space: nowrap; background-color: transparent; padding: 4px 8px; border: 1px solid #ffc107;">&#128202; View ATS Report</a>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                          {% endif %}
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- UNIT TEST -->
+                    {% if ut_summary %}
+                    <div class="section-card">
+                      <h4 class="text-success" style="color: #198754; padding-top: 0; padding-bottom: 0; font-weight: 500; vertical-align: baseline; font-size: 24px; line-height: 28.8px; margin: 0;" align="left">&#129514; Unit Test Results</h4>
+                      <table class="s-3 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                        <tbody>
+                          <tr>
+                            <td style="line-height: 12px; font-size: 12px; width: 100%; height: 12px; margin: 0;" align="left" width="100%" height="12">
+                              &#160;
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table class="table table-bordered table-hover table-striped text-center" border="0" cellpadding="0" cellspacing="0" style="width: 100%; max-width: 100%; text-align: center !important; border: 1px solid #e2e8f0;">
+                        <thead class="table-light" style="background-color: white;">
+                          <tr>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">Total</th>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">Passed</th>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">Failed</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr style="" bgcolor="#f2f2f2">
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="center" valign="top">{{ ut_summary.Total_tests or "N/A" }}</td>
+                            <td class="text-success" style="line-height: 24px; font-size: 16px; color: #198754; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="center" valign="top">{{ ut_summary.Passed_tests or "N/A" }}</td>
+                            <td class="text-danger" style="line-height: 24px; font-size: 16px; color: #dc3545; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="center" valign="top">{{ ut_summary.Failed_tests or "N/A" }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    {% endif %}
+                    <!-- COVERAGE -->
+                    {% if coverage_summary %}
+                    <div class="section-card">
+                      <h4 class="text-primary" style="color: #0d6efd; padding-top: 0; padding-bottom: 0; font-weight: 500; vertical-align: baseline; font-size: 24px; line-height: 28.8px; margin: 0;" align="left">&#128200; Coverage Summary</h4>
+                      <table class="s-3 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                        <tbody>
+                          <tr>
+                            <td style="line-height: 12px; font-size: 12px; width: 100%; height: 12px; margin: 0;" align="left" width="100%" height="12">
+                              &#160;
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table class="table table-bordered table-hover text-center" border="0" cellpadding="0" cellspacing="0" style="width: 100%; max-width: 100%; text-align: center !important; border: 1px solid #e2e8f0;">
+                        <thead class="table-light" style="background-color: white;">
+                          <tr>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">Type</th>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">Executed</th>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">Total</th>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">Coverage %</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for item in coverage_summary %}
+                          <tr>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="center" valign="top">{{ item.type }}</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="center" valign="top">{{ item.executed }}</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="center" valign="top">{{ item.total }}</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="center" valign="top"><strong>{{ item.percentage }}</strong></td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                    {% endif %}
+                    <!-- GERRIT CHANGES -->
+                    {% if commit_message %}
+                    <div class="section-card">
+                      <h4 class="text-info" style="color: #0dcaf0; padding-top: 0; padding-bottom: 0; font-weight: 500; vertical-align: baseline; font-size: 24px; line-height: 28.8px; margin: 0;" align="left">&#128221; Gerrit Change Details</h4>
+                      <table class="s-3 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                        <tbody>
+                          <tr>
+                            <td style="line-height: 12px; font-size: 12px; width: 100%; height: 12px; margin: 0;" align="left" width="100%" height="12">
+                              &#160;
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table class="table table-bordered table-hover" border="0" cellpadding="0" cellspacing="0" style="width: 100%; max-width: 100%; border: 1px solid #e2e8f0;">
+                        <thead class="table-light" style="background-color: white;">
+                          <tr>
+                            <th style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="left" valign="top">S.I. No</th>
+                            <th style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="left" valign="top">Commit Message</th>
+                            <th style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="left" valign="top">Gerrit</th>
+                            <th style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="left" valign="top">Topic</th>
+                            <th style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="left" valign="top">Owner</th>
+                            <th style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="left" valign="top">Repo</th>
+                            <th style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="left" valign="top">Branch</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top">01</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top">{{ commit_message }}</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top"><a href="{{ change }}" style="color: #0d6efd;">{{ change }}</a></td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top">{{ change_topic }}</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top">{{ commit_owner }}</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top">{{ repo_path }}</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top">{{ change_branch }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    {% endif %}
+                    <!-- ANDROID GERRIT -->
+                    {% if android_gerrit_changes %}
+                    <div class="section-card">
+                      <h4 class="text-warning" style="color: #ffc107; padding-top: 0; padding-bottom: 0; font-weight: 500; vertical-align: baseline; font-size: 24px; line-height: 28.8px; margin: 0;" align="left">&#129302; Android Gerrit Changes</h4>
+                      <table class="s-3 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                        <tbody>
+                          <tr>
+                            <td style="line-height: 12px; font-size: 12px; width: 100%; height: 12px; margin: 0;" align="left" width="100%" height="12">
+                              &#160;
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table class="table table-bordered table-hover" border="0" cellpadding="0" cellspacing="0" style="width: 100%; max-width: 100%; border: 1px solid #e2e8f0;">
+                        <thead class="table-light" style="background-color: white;">
+                          <tr>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">S.I. No</th>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">Change URL</th>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">Commit Message</th>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">Owner</th>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">Repo</th>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">Topic</th>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">Branch</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% if android_gerrit_changes == "No Android Gerrit changes" %}
+                          <tr>
+                            <td colspan="7" class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="center" valign="top">No Android Gerrit changes</td>
+                          </tr>
+                          {% else %}
+                          {% for change in android_gerrit_changes %}
+                          <tr>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top">{{ "%02d"|format(loop.index) }}</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top"><a href="{{ change.change }}" style="color: #0d6efd;">{{ change.change }}</a></td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top">{{ change.commit_message }}</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top">{{ change.commit_owner }}</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top">{{ change.repo_path }}</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top">{{ change.change_topic }}</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top">{{ change.change_branch }}</td>
+                          </tr>
+                          {% endfor %}
+                          {% endif %}
+                        </tbody>
+                      </table>
+                    </div>
+                    {% endif %}
+                    <!-- LINUX GERRIT -->
+                    {% if linux_gerrit_changes %}
+                    <div class="section-card">
+                      <h4 class="text-danger" style="color: #dc3545; padding-top: 0; padding-bottom: 0; font-weight: 500; vertical-align: baseline; font-size: 24px; line-height: 28.8px; margin: 0;" align="left">&#128039; Linux Gerrit Changes</h4>
+                      <table class="s-3 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                        <tbody>
+                          <tr>
+                            <td style="line-height: 12px; font-size: 12px; width: 100%; height: 12px; margin: 0;" align="left" width="100%" height="12">
+                              &#160;
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table class="table table-bordered table-hover" border="0" cellpadding="0" cellspacing="0" style="width: 100%; max-width: 100%; border: 1px solid #e2e8f0;">
+                        <thead class="table-light" style="background-color: white;">
+                          <tr>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">S.I. No</th>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">Change URL</th>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">Commit Message</th>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">Owner</th>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">Repo</th>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">Topic</th>
+                            <th class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border-color: #e2e8f0; border-style: solid; border-width: 1px 1px 2px;" align="center" valign="top">Branch</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <!-- {% if linux_gerrit_changes == "No Linux Gerrit changes" %}
+                          <tr>
+                            <td colspan="7" class="text-center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="center" valign="top">No Linux Gerrit changes</td>
+                          </tr> -->
+                          {% else %}
+                          {% for change in linux_gerrit_changes %}
+                          <tr>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top">{{ "%02d"|format(loop.index) }}</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top"><a href="{{ change.change }}" style="color: #0d6efd;">{{ change.change }}</a></td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top">{{ change.commit_message }}</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top">{{ change.commit_owner }}</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top">{{ change.repo_path }}</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top">{{ change.change_topic }}</td>
+                            <td style="line-height: 24px; font-size: 16px; margin: 0; padding: 12px; border: 1px solid #e2e8f0;" align="left" valign="top">{{ change.change_branch }}</td>
+                          </tr>
+                          {% endfor %}
+                          {% endif %}
+                          {%endif%}
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+              <p style="line-height: 24px; font-size: 16px; width: 100%; margin: 0;" align="left">If you have any questions or concerns, feel free to reach out at <a href="mailto:mail_cockpitsw_cicd@mail.com" style="color: #0d6efd;">mail_cockpitsw_cicd@mail.com</a>.</p>
+                    <table class="s-5 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                      <tbody>
+                        <tr>
+                          <td style="line-height: 20px; font-size: 20px; width: 100%; height: 20px; margin: 0;" align="left" width="100%" height="20">
+                            &#160;
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="hr" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
+                      <tbody>
+                        <tr>
+                          <td style="line-height: 24px; font-size: 16px; border-top-width: 1px; border-top-color: #e2e8f0; border-top-style: solid; height: 1px; width: 100%; margin: 0;" align="left">
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="s-5 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                      <tbody>
+                        <tr>
+                          <td style="line-height: 20px; font-size: 20px; width: 100%; height: 20px; margin: 0;" align="left" width="100%" height="20">
+                            &#160;
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p class="text-muted small" style="line-height: 24px; font-size: 16px; color: #718096; width: 100%; margin: 0;" align="left">Thanks,<br> mail_CockpitSW_CICD</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
