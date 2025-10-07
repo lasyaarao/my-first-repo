@@ -1,6 +1,9 @@
 name: workflow
 on:
-  push
+
+  workflow_dispatch:
+
+
 
 env:
   GREETING: echo "Hello GitHub Actions"
@@ -12,8 +15,15 @@ jobs:
       - name: message
         run: echo "Starting workflow"
 
-      - name: two
+      - name:
         run: $GREETING
 
-      - name: three
+      - name: 
         run: echo "workflow completed successfully" 
+
+  test:
+    runs-on: ubuntu-latest
+    needs: hello
+    steps:
+      - run: "running tests after build"
+    
