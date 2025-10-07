@@ -12,8 +12,8 @@ jobs:
       - name: message
         run: echo "Starting workflow"
 
-      - name:
+      - name: two
         run: $GREETING
 
-      - name: 
+      - name: three
         run: echo "workflow completed successfully" 
