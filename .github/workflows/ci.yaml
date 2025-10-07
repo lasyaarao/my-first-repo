@@ -1,14 +1,19 @@
-name: CI Pipeline
-
+name: workflow
 on:
-  push:
-    branches:
-      - main
+  push
+
+env:
+  GREETING: echo "Hello GitHub Actions"
 
 jobs:
-  say-hello:
+  hello:
     runs-on: ubuntu-latest
-
     steps:
-      - name: say hello
-        run: echo "Hello World"
+      - name: message
+        run: echo "Starting workflow"
+
+      - name:
+        run: $GREETING
+
+      - name: 
+        run: echo "workflow completed successfully" 
