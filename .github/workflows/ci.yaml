@@ -1,6 +1,6 @@
 name: workflow
 on:
-
+  push:
   workflow_dispatch:
 
 
@@ -25,5 +25,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: hello
     steps:
-      - run: "running tests after build"
+      - run: echo "running tests after build"
     
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      runs: echo "deploy"
